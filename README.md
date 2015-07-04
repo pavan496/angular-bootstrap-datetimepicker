@@ -209,6 +209,49 @@ If you apply the required directive to element then the form element is invalid 
 
 Note: Remember that the ng-required directive must be explicitly set, i.e. to "true".
 
+## minDateModel
+configuration to set the minimum date selectable in the datetime picker. The value set to the model should be of UTC date format.
+
+### Usage
+```html
+	 <datetimepicker data-datetimepicker-config="{scope:this, minDateModel:'fromDate'/>
+```
+
+```javascript
+	$scope.fromDate = moment().valueOf()
+```
+
+The above script will disable all the date/time selections prior to current time.
+
+## maxDateModel
+configuration to set the maximum date selectable in the datetime picker. The value set to the model should be of UTC date format.
+
+### Usage
+```html
+	 <datetimepicker data-datetimepicker-config="{scope:this, maxDateModel:'toDate'/>
+```
+
+```javascript
+	$scope.toDate = moment().valueOf()
+```
+
+The above script will disable all the date/time selections prior after current time.
+
+## displayModel 
+Datetimepicker directive by itself is not an element which is visible to the user. In case you need the date selected to be shown in a text control, the text control's model can be associated with the datetimepicker without writing additional code. Modification done to the date in the input box will also be udpated in the datetimepicker.
+
+Requires <code>displayFormat</code> option to be set to the directive with momentjs compaitible format.
+
+### Usage
+```html
+	  <datetimepicker data-datetimepicker-config="{ scope:this, displayModel:'formattedDates.date', displayFormat:'DD MMM, YYYY HH:mm A'}"/>
+```
+
+The above script will disable all the date/time selections prior after current time.
+
+
+**NOTE**: minDateModel, maxDateModel and displayModel require <code>scope:this</code> to be passed as one of the configuration parameters
+
 ## Examples
 
 ### Inline component.
